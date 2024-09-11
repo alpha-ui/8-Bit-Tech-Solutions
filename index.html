@@ -177,6 +177,15 @@ button:hover {
     border: 0;
     font-size: small;
 }
+
+.w3-black, .w3-hover-black:hover {
+    color: #fff !important;
+    background-color: #d8bf36 !important;
+}
+.w3-dropdown-hover:first-child, .w3-dropdown-click:hover {
+    background-color: #cccccc00;
+    color: #000;
+}
 </style>
 
 </head>
@@ -886,6 +895,18 @@ button:hover {
                 <div class="form-group col">
                   <input type="number" class="form-control" name="mobile" id="inputMobile4" placeholder="Mobile" required>
                 </div>
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-12" style="text-align: center;">
+              <div class="w3-dropdown-click">
+                <button onclick="myFunction()" class="w3-button w3-black">Select the service</button>
+                <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button">Web-Devlopment</a>
+                  <a href="#" class="w3-bar-item w3-button">Digital Marketing</a>
+                  <a href="#" class="w3-bar-item w3-button">Others</a>
+                </div>
+              </div>
+              </div>
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" name="subject" id="inputMessage" placeholder="Message">
