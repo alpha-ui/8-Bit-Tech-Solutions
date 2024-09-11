@@ -27,7 +27,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- popup form -->
 <style>
   /* Styles for the popup and form (modify as needed) */
@@ -105,6 +105,78 @@
       width: 100%;
       height: 100%;
     }
+
+    /*  */
+    .service_section .service_container .box {
+    margin: 25px 25px;
+    min-width: 230px;
+    width: 350px;
+}
+
+/* Popup form styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: small;
+}
 </style>
 
 </head>
@@ -160,7 +232,7 @@
   <!-- floating whatsapp icon end -->
   <div class="hero_area">
     <!-- header section strats -->
-    <header class="header_section" style="position: sticky; top: 0; background-color: #041858; padding: 0px; display: flex; z-index: 99999;">
+    <header class="header_section" style="position: sticky; top: 0; background-color: #041858b3; padding: 10px; display: flex; z-index: 99999;">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
@@ -347,6 +419,35 @@
 
   <!-- end about section -->
 
+  <!-- Popup Form -->
+  <div id="popup-form" class="popup">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="email">Mobile:</label><br>
+            <input type="number" id="mobile" name="mobile" required><br>
+            <br>
+              <div class="w3-dropdown-click">
+                <button onclick="myFunction()" class="w3-button w3-black">Select the service</button>
+                <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button">Web-Devlopment</a>
+                  <a href="#" class="w3-bar-item w3-button">Digital Marketing</a>
+                  <a href="#" class="w3-bar-item w3-button">Others</a>
+                </div>
+              </div>
+              <br>
+              <br>
+              <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
 
   <!-- service section -->
   <section class="service_section layout_padding"  id="serviceLink">
@@ -372,6 +473,22 @@
             <p>
               We're experts in crafting compelling websites that elevate your brand in the eyes of your target audience.
             </p>
+            <br>
+            <div style="text-align: left;">
+            <p>
+              <strong>Static Website</strong>
+              <p>&#8226;&nbsp;&nbsp;Single Page - ₹3499/-</p>
+              <p>&#8226;&nbsp;&nbsp;Multi Page (5 Pages) - ₹3999/-</p>
+              <p>&#8226;&nbsp;&nbsp;Multi Page (Upto 15 Pages) - ₹4499/-</p>
+              <br>
+              <strong>Dynamic Website</strong><br><br>
+              <p>&#8226;&nbsp;&nbsp;Single Page - ₹4999/-</p>
+              <p>&#8226;&nbsp;&nbsp;Multi Page (5 Pages) - ₹5499/-</p>
+              <p>&#8226;&nbsp;&nbsp;Multi Page (Upto 15 Pages) - ₹6999/-</p>
+              <br>
+              <strong>API Integration</strong>
+            </p>
+            </div>
           </div>
         </div>
         <div class="box">
@@ -386,9 +503,33 @@
             <p>
               We harness the ever-evolving digital landscape to amplify your brand voice and achieve measurable results.
             </p>
+            <br>
+            <div style="text-align: left;">
+            <p>
+              <strong>15 Days Package - ₹3499/-</strong>
+              <p>&#8226;&nbsp;&nbsp;10 Post</p>
+              <p>&#8226;&nbsp;&nbsp;6 Stories</p>
+              <p>&#8226;&nbsp;&nbsp;2 Reels</p>
+              <br>
+              <strong>1 Month Package - ₹5399/-</strong><br><br>
+              <p>&#8226;&nbsp;&nbsp;12 Post</p>
+              <p>&#8226;&nbsp;&nbsp;8 Stories</p>
+              <p>&#8226;&nbsp;&nbsp;3 Reels</p>
+              <br>
+              <strong>3 Month Package - ₹12599/-</strong><br><br>
+              <p>&#8226;&nbsp;&nbsp;25 Post</p>
+              <p>&#8226;&nbsp;&nbsp;16 Stories</p>
+              <p>&#8226;&nbsp;&nbsp;9 Reels</p>
+              <br>
+              <strong>Per Post - ₹399/-</strong><br>
+              <strong>Per Story - ₹249/-</strong><br>
+              <strong>Per Reel - ₹499/-</strong><br>
+              <strong>Video Editing - ₹949/-</strong>
+            </p>
+            </div>
           </div>
         </div>
-        <div class="box">
+        <!-- <div class="box">
           <div class="img-box">
             <img src="images/s-1.png" alt="">
           </div>
@@ -400,7 +541,7 @@
               we identify both strengths and opportunities for improvement, providing a clear roadmap for optimizing your online presence.
             </p>
           </div>
-        </div>
+        </div> -->
         <div class="box">
           <div class="img-box">
             <img src="images/s-4.png" alt="">
@@ -410,11 +551,28 @@
               CRM Software
             </h5>
             <p>
-              Our CRM software provides a centralized platform to manage all your customer interactions, from initial leads to loyal advocates.
+              Our CRM software centralizes customer interactions, tracking everything from leads to loyal advocates.  
             </p>
+            <br>
+            <div style="text-align: left;">
+            <p>
+              <strong>Starts from ₹14999/-</strong>
+              <p>&#8226;&nbsp;&nbsp;Master Admin Panel</p>
+              <p>&#8226;&nbsp;&nbsp;Complete User Panel</p>
+              <p>&#8226;&nbsp;&nbsp;Products inventory Option</p>
+              <p>&#8226;&nbsp;&nbsp;Products Placement Order inventory Option</p>
+              <p>&#8226;&nbsp;&nbsp;Accounting / Billing Option</p>
+              <p>&#8226;&nbsp;&nbsp;Payment Gateway Integration</p>
+              <p>&#8226;&nbsp;&nbsp;Website Maintenance Support For 1 Year</p>
+              <p>&#8226;&nbsp;&nbsp;SEO Keywords Add Option in Website</p>
+              <p>&#8226;&nbsp;&nbsp;SMS API Integration For Login & Order Notification</p>
+              <p>&#8226;&nbsp;&nbsp;Promo & Discount Code Option</p>
+              <p>&#8226;&nbsp;&nbsp;Delivery Code API Integration</p>
+            </p>
+            </div>
           </div>
         </div>
-        <div class="box">
+        <!-- <div class="box">
           <div class="img-box">
             <img src="images/s-5.png" alt="">
           </div>
@@ -426,7 +584,8 @@
               We excel at helping businesses climb the search engine ladder through strategic SEO optimization.
             </p>
           </div>
-        </div>
+        </div> -->
+        <p style="font-style: italic;">Domain and Server to be provided by client<p style="color: red;">*</p></p>
       </div>
       <!-- <div class="btn-box">
         <a href="service.html">
@@ -615,7 +774,7 @@
 
   <!-- end team section -->
 
-  <!-- client section 
+  <!-- client section -->
 
   <section class="client_section layout_padding-bottom">
     <div class="container">
@@ -697,7 +856,7 @@
 
   </section>
 
-   end client section -->
+  <!-- end client section -->
 
   <div class="footer_bg">
 
@@ -751,7 +910,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="info_logo">
-              <img src="images/logo.png" style="height: 80px; width: auto; margin-bottom: 20px;">
+              <img src="images/logo.png" style="height: 140px; width: auto; margin-bottom: 20px;">
               <p>
               </p>
             </div>
@@ -811,7 +970,7 @@
                   Subscribe
                 </button>
               </form>
-              <div class="social_box">
+              <!-- <div class="social_box">
                 <a href="">
                   <img src="images/info-fb.png" alt="">
                 </a>
@@ -824,7 +983,7 @@
                 <a href="">
                   <img src="images/info-youtube.png" alt="">
                 </a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -868,7 +1027,41 @@
       window.open('https://wa.me/+919167192594?text=Hi!%20I%20want%20to%20chat%20with%20you.');
     });
   </script>
-  
+
+
+  <!-- onload popup -->
+  <script>
+    // Show the popup after 2 seconds
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('popup-form').style.display = 'flex';
+    }, 3000);
+};
+
+// Close the popup when the user clicks on the "x" button
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('popup-form').style.display = 'none';
+});
+
+// Optionally, you can close the popup when the user clicks outside of it
+window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('popup-form')) {
+        document.getElementById('popup-form').style.display = 'none';
+    }
+});
+
+  </script>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("Demo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+  </script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
