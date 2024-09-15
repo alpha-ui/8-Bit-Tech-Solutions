@@ -28,6 +28,7 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <!-- popup form -->
 <style>
   /* Styles for the popup and form (modify as needed) */
@@ -186,6 +187,76 @@ button:hover {
     background-color: #cccccc00;
     color: #000;
 }
+/* Add some basic styling for demonstration */
+.w3-dropdown-click {
+            position: relative;
+            display: inline-block;
+        }
+
+        .w3-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .w3-dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .w3-dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .w3-dropdown-content2 {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .w3-dropdown-content2 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .w3-dropdown-content2 a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .w3-button {
+            background-color: #fff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .w3-button2 {
+            background-color: #fff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Style to show the dropdown menu */
+        .show {
+            display: block;
+        }
+
+        .show2 {
+            display: block;
+        }
 </style>
 
 </head>
@@ -441,14 +512,14 @@ button:hover {
             <label for="email">Mobile:</label><br>
             <input type="number" id="mobile" name="mobile" required><br>
             <br>
-              <div class="w3-dropdown-click">
-                <button onclick="myFunction()" class="w3-button w3-black">Select the service</button>
-                <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-                  <a href="#" class="w3-bar-item w3-button">Web-Devlopment</a>
+            <div class="w3-dropdown-click">
+              <button type="button" onclick="toggleDropdown()" class="w3-button w3-black">Select the service</button>
+              <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button">Web-Development</a>
                   <a href="#" class="w3-bar-item w3-button">Digital Marketing</a>
                   <a href="#" class="w3-bar-item w3-button">Others</a>
-                </div>
               </div>
+          </div>
               <br>
               <br>
               <label for="message">Message:</label><br>
@@ -489,11 +560,13 @@ button:hover {
               <p>&#8226;&nbsp;&nbsp;Single Page - ₹3499/-</p>
               <p>&#8226;&nbsp;&nbsp;Multi Page (5 Pages) - ₹3999/-</p>
               <p>&#8226;&nbsp;&nbsp;Multi Page (Upto 15 Pages) - ₹4499/-</p>
+              <p style="font-style: italic;">(INCLUSIVE: 6 Months Technical Support, Image Editing, SEO.)</p>
               <br>
               <strong>Dynamic Website</strong><br><br>
               <p>&#8226;&nbsp;&nbsp;Single Page - ₹4999/-</p>
               <p>&#8226;&nbsp;&nbsp;Multi Page (5 Pages) - ₹5499/-</p>
               <p>&#8226;&nbsp;&nbsp;Multi Page (Upto 15 Pages) - ₹6999/-</p>
+              <p style="font-style: italic;">(INCLUSIVE: 1 Year Technical Support, Image Editing, SEO, 1 Month Digital Marketing, Google Robots, Google Analytics, XML Site Mapping.)</p>
               <br>
               <strong>API Integration</strong>
             </p>
@@ -560,7 +633,7 @@ button:hover {
               E-commerce Website
             </h5>
             <p>
-             Boost your sales and grow your brand with our powerful, user-friendly e-commerce solutions designed to elevate your online business.
+              Boost your sales and grow your brand with our powerful, user-friendly e-commerce solutions designed to elevate your online business.  
             </p>
             <br>
             <div style="text-align: left;">
@@ -898,13 +971,13 @@ button:hover {
               </div>
               <div class="form-row">
               <div class="form-group col-md-12" style="text-align: center;">
-              <div class="w3-dropdown-click">
-                <button onclick="myFunction()" class="w3-button w3-black">Select the service</button>
-                <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-                  <a href="#" class="w3-bar-item w3-button">Web-Devlopment</a>
-                  <a href="#" class="w3-bar-item w3-button">Digital Marketing</a>
-                  <a href="#" class="w3-bar-item w3-button">Others</a>
-                </div>
+                <div class="w3-dropdown-click">
+                  <button type="button" onclick="toggleDropdown()" class="w3-button2 w3-black">Select the service</button>
+                  <div id="Demo2" class="w3-dropdown-content2 w3-bar-block w3-border">
+                      <a href="#" class="w3-bar-item2 w3-button2">Web-Development</a>
+                      <a href="#" class="w3-bar-item2 w3-button2">Digital Marketing</a>
+                      <a href="#" class="w3-bar-item2 w3-button2">Others</a>
+                  </div>
               </div>
               </div>
               </div>
@@ -1086,7 +1159,78 @@ window.addEventListener('click', function(event) {
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
+  <script>
+    // Function to toggle the visibility of the dropdown
+    function toggleDropdown() {
+        document.getElementById("Demo").classList.toggle("show");
+    }
+
+    // Event listener to handle dropdown item clicks
+    document.querySelectorAll('#Demo .w3-bar-item.w3-button').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default action (following the href)
+            
+            // Get the selected text
+            var selectedText = this.textContent;
+            
+            // Change the button text to the selected option
+            document.querySelector('.w3-button').textContent = selectedText;
+            
+            // Hide the dropdown menu after selection
+            document.getElementById("Demo").classList.remove("show");
+        });
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.w3-button')) {
+            var dropdowns = document.getElementsByClassName("w3-dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+<script>
+  // Function to toggle the visibility of the dropdown
+  function toggleDropdown() {
+      document.getElementById("Demo2").classList.toggle("show2");
+  }
+
+  // Event listener to handle dropdown item clicks
+  document.querySelectorAll('#Demo2 .w3-bar-item2.w3-button2').forEach(item => {
+      item.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent the default action (following the href)
+          
+          // Get the selected text
+          var selectedText = this.textContent;
+          
+          // Change the button text to the selected option
+          document.querySelector('.w3-button2').textContent = selectedText;
+          
+          // Hide the dropdown menu after selection
+          document.getElementById("Demo2").classList.remove("show2");
+      });
+  });
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+      if (!event.target.matches('.w3-button2')) {
+          var dropdowns = document.getElementsByClassName("w3-dropdown-content2");
+          for (var i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show2')) {
+                  openDropdown.classList.remove('show2');
+              }
+          }
+      }
+  }
+</script>
 </body>
 
 </html>
