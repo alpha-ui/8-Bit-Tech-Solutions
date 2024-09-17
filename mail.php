@@ -1,28 +1,51 @@
+
 <?php
-// Get data from form
-$name = isset($_POST['name']) ? $_POST['name'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$number = isset($_POST['mobile']) ? $_POST['mobile'] : '';
-$subject = isset($_POST['subject']) ? $_POST['subject'] : '';
+// Replace with your actual Google Sheets API key (remove unnecessary spaces)
+$apiKey = 'AIzaSyC07Kexn15fN0spCTt2yf2YlZukWz3t_Uw';
 
-// Define recipient email and subject
-$to = "akshay.8bittech@gmail.com"; // Replace with your desired recipient email
-$subject = "Mail From 8Bit Tech Solutions";
+// Extract sheet ID from the URL (if using URL parameter)
+$sheetId = explode('/', $_SERVER['REQUEST_URI'])[5];
 
-// Create message body with proper formatting
-$message = "Name: " . $name . "\r\n" .
-           "Email: " . $email . "\r\n" .
-           "Mobile Number: " . $number . "\r\n" .
-           "Subject: " . $subject;
+// Construct the sheet URL (adjust based on your sheet location)
+$sheetUrl = 'https://docs.google.com/spreadsheets/d/1wfxyOsRsSTvpWrtV5AEdQrPK3ymXU4Aw49AcdLFNUS0/edit?gid=2084010375#gid=2084010375' . $sheetId . '/values/A1:Z100';
 
-// Set headers
-$headers = "From: 8Bit Tech Solutions";
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Extract form data
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $mobile = $_POST['mobile'];
+  $subject = $_POST['subject'];
 
-// Send email only if email address is provided
-if ($email != null) {
-    mail($to, $subject, $message, $headers);
-}
+  // Get service (from URL parameter or hidden field)
+  $service = isset($_GET['service']) ? $_GET['service'] : (isset($_POST['service']) ? $_POST['service'] : '');
 
-// Redirect to thank you page (optional)
-// header("Location: thankyou.html");
-?>
+  // Prepare data for Google Sheets API
+  $data = [
+    'majorDimension' => 'COLUMNS',
+    'values' => [
+      [$name, $email, $mobile, $service, $subject]
+    ]
+  ];
+
+  // Make API request using Guzzle
+  $client = new GuzzleHttp\Client();
+  $response = $client->request('PUT', $sheetUrl, [
+    'headers' => [
+        // Make API request using Guzzle
+        $client = new GuzzleHttp\Client();
+        $response = $client->request('PUT', $sheetUrl, [
+          'headers' => [
+            'Authorization' => 'Bearer ' . $apiKey,
+            'Content-Type' => 'application/json'
+          ],
+          'json' => $data
+        ]);
+      
+        // Handle response
+        if ($response->getStatusCode() === 200) {
+          echo 'Data successfully sent to Google Sheets.';
+        } else {
+          echo 'Error sending data to Google Sheets: ' . $response->getBody();
+        }
+      }
