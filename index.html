@@ -954,7 +954,7 @@ button:hover {
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-8 mx-auto" action="mail.php">
-            <form>
+            <form action="mail.php">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="text" class="form-control" name="name" id="inputName4" placeholder="Name " required>
@@ -970,16 +970,16 @@ button:hover {
                 </div>
               </div>
               <div class="form-row">
-              <div class="form-group col-md-12" style="text-align: center;">
-                <div class="w3-dropdown-click">
-                  <button type="button" onclick="toggleDropdown()" class="w3-button2 w3-black">Select the service</button>
-                  <div id="Demo2" class="w3-dropdown-content2 w3-bar-block w3-border">
-                      <a href="#" class="w3-bar-item2 w3-button2">Web-Development</a>
-                      <a href="#" class="w3-bar-item2 w3-button2">Digital Marketing</a>
-                      <a href="#" class="w3-bar-item2 w3-button2">Others</a>
+                <div class="form-group col-md-12" style="text-align: center;">
+                  <div class="w3-dropdown-click">
+                    <button type="button" onclick="toggleDropdown()" class="w3-button2 w3-black">Select the service</button>
+                    <div id="Demo2" class="w3-dropdown-content2 w3-bar-block w3-border">
+                      <a href="?service=web-development" class="w3-bar-item2 w3-button2">Web-Development</a>
+                      <a href="?service=digital-marketing" class="w3-bar-item2 w3-button2">Digital Marketing</a>
+                      <a href="?service=others" class="w3-bar-item2 w3-button2">Others</a>
+                    </div>
                   </div>
-              </div>
-              </div>
+                </div>
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" name="subject" id="inputMessage" placeholder="Message">
@@ -987,6 +987,7 @@ button:hover {
               <div class="d-flex justify-content-center">
                 <button type="submit" class="">Send</button>
               </div>
+              <input type="hidden" name="service" id="selectedService">
             </form>
           </div>
         </div>
